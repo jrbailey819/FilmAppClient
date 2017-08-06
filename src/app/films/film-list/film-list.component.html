@@ -1,0 +1,36 @@
+<div id="filmList" class="container">
+  <section *ngIf="isLoading && !errorMessage">
+    Loading...
+  </section>
+  <section *ngIf="errorMessage">
+    {{errorMessage}}
+  </section>
+  <div class="form-group row" *ngIf="!isLoading">
+    <div class="col-sm-12">
+      <table class="table">
+        <thead>
+          <th>Title</th>
+          <th>Director</th>
+          <th>Release Date</th>
+          <th>Rating</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let film of films">
+            <td>
+              <a [routerLink]="[film.id]">
+                 {{film.title}}
+              </a>
+            </td>
+            <td>{{film.director}}</td>
+            <td>{{(film.releaseDate) ? (film.releaseDate | date:'yMMMd') : ''}}</td>
+            <td>
+              <ngb-rating [(rate)]="film.rating" (rateChange)="saveRating(film)" max="5"></ngb-rating>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-default" [routerLink]="['new']">Add</button>
+      <span *ngIf="busy">Working...</span>
+    </div>
+  </div>
+</div>

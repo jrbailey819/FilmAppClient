@@ -1,0 +1,38 @@
+<div class="film-form container">
+    <section *ngIf="isLoading && !errorMessage">
+    Loading...
+    </section>
+    <section *ngIf="errorMessage">
+    {{errorMessage}}
+    </section>    
+  <div class="panel panel-default col-sm-4 col-sm-offset-4" *ngIf="film">
+    <form class="panel-body" (ngSubmit)="submitForm(filmForm)" #filmForm="ngForm" data-toggle="validator">
+      <div class="form-group" [ngClass]="{'has-error':title.invalid && submitted}">
+        <label>Title</label>
+        <input type="text" required [(ngModel)]="film.title" name="title" #title="ngModel" class="form-control">
+        <div *ngIf="title.invalid && submitted" class="alert alert-danger">Title is required.</div>
+      </div>
+      <div class="form-group">
+        <label>Director</label>
+        <input type="text" [(ngModel)]="film.director" name="director" #director="ngModel" class="form-control">
+      </div>
+      <div class="form-group" [ngClass]="{'has-error':releaseDate.invalid && releaseDate.touched}">
+        <label>Release Date</label>
+        <input type="text" placeholder="mm/dd/yyyy" [(ngModel)]="releaseDateStr"
+          name="releaseDate" #releaseDate="ngModel" pattern="(0?[1-9]|1[012])[- \/.](0?[1-9]|[12][0-9]|3[01])[- \/.](19|20)\d\d"
+          data-error="test" class="form-control">
+        <div *ngIf="releaseDate.invalid && releaseDate.touched" class="alert alert-danger" >Enter date in mm/dd/yyyy format.</div>
+      </div>
+      <div class="form-group">
+        <label>Rating</label>
+        <ngb-rating [(rate)]="film.rating" max="5"></ngb-rating>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-default">Save</button>
+        <button type="button" class="btn" [routerLink]="['../../films']">Cancel</button>
+        <button type="button" class="btn" *ngIf="!isNew" (click)="delete()">Delete</button>
+        <span *ngIf="busy">Working...</span>
+      </div>
+    </form>
+  </div>
+</div>
