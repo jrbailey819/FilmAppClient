@@ -28,7 +28,7 @@ export class FilmListComponent implements OnInit {
         this.busy = true;
         this.filmService.update(film)
             .subscribe(
-                () => {},
+                null,
                 e => this.errorMessage = e,
                 () => this.busy = false
             );

@@ -29,7 +29,9 @@
           </tr>
         </tbody>
       </table>
-      <button class="btn btn-default" [routerLink]="['new']">Add</button>
+    </div>
+    <div class="col-sm-2 offset-sm-10">
+      <button class="btn btn-primary" [routerLink]="['new']">Add</button>
       <span *ngIf="busy">Working...</span>
     </div>
   </div>

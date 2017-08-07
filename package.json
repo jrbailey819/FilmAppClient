@@ -1,5 +1,5 @@
 {
-  "name": "angular2-seed",
+  "name": "FilmAppClient",
   "version": "1.0.0",
   "description": "A simple starter Angular2 project",
   "scripts": {
@@ -41,6 +41,7 @@
     "angular2-template-loader": "^0.6.0",
     "awesome-typescript-loader": "^3.1.2",
     "aws-sdk": "^2.94.0",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.0",
     "html-webpack-plugin": "^2.28.0",
     "raw-loader": "^0.5.1",
@@ -53,17 +54,14 @@
     "webpack-merge": "^4.1.0"
   },
   "keywords": [
-    "Angular2",
-    "angular2-seed",
-    "official angular 2 seed",
-    "official angular2 seed"
+    "Film App"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/angular/angular2-seed.git"
+    "url": "git+https://github.com/jrbailey819/FilmAppClient.git"
   },
   "bugs": {
-    "url": "https://github.com/angular/angular2-seed/issues"
+    "url": "https://github.com/jrbailey819/FilmAppClient/issues"
   },
-  "homepage": "https://github.com/angular/angular2-seed#readme"
+  "homepage": "https://github.com/jrbailey819/FilmAppClient#readme"
 }
